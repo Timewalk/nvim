@@ -45,6 +45,8 @@ vim.keymap.set("n", "<Right>", "<C-w><C-l>")
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
+vim.keymap.set("n", "<leader>pt", ":ToggleTerm size=100 direction=vertical<CR>")
+vim.keymap.set("t", "<esc>", [[<C-\><C-n>]])
 
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
