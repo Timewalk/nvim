@@ -12,6 +12,7 @@ end
 local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
+    use 'mfussenegger/nvim-dap'
     use 'wbthomason/packer.nvim'
     use 'folke/tokyonight.nvim'
     use 'nvim-tree/nvim-tree.lua'
@@ -23,6 +24,22 @@ return require('packer').startup(function(use)
     use ('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' } )
     use 'mbbill/undotree'
     use 'tpope/vim-fugitive'
+    use 'github/copilot.vim'
+    
+    use { 'alexghergh/nvim-tmux-navigation', config = function()
+            require'nvim-tmux-navigation'.setup {
+                disable_when_zoomed = true, -- defaults to false
+                keybindings = {
+                    left = "<C-h>",
+                    down = "<C-j>",
+                    up = "<C-k>",
+                    right = "<C-l>",
+                    last_active = "<C-\\>",
+                    next = "<C-Space>",
+                }
+            }
+        end
+    }
 
     use {
         'VonHeikemen/lsp-zero.nvim',
@@ -41,9 +58,9 @@ return require('packer').startup(function(use)
         }
     }
 
-    -- Automatically set up your configuration after cloning packer.nvim
-    -- Put this at the end after all plugins
-    if packer_bootstrap then
-        require('packer').sync()
-    end
+-- Automatically set up your configuration after cloning packer.nvim
+-- Put this at the end after all plugins
+if packer_bootstrap then
+    require('packer').sync()
+end
 end)

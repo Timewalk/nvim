@@ -42,3 +42,7 @@ vim.keymap.set('n', '<leader>opt', '<cmd>e ~/.config/nvim/lua/core/options.lua<C
 
 vim.keymap.set('n', '<leader><leader>', ':NvimTreeToggle<CR>')
 
+vim.api.nvim_set_keymap('n', '<C-Left>', '<C-w>h', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-Right>', '<C-w>l', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-Up>', '<C-w>k', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-Down>', '<C-w>j', { noremap = true })
