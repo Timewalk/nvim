@@ -14,8 +14,4 @@ opt.signcolumn = "yes"         -- always show sign column
 opt.clipboard = "unnamedplus" -- use system clipboard
 opt.mouse = "a"                -- enable mouse support
 
-
-vim.lsp.enable('luals')
-vim.lsp.enable('jedils')
-
 vim.cmd('colorscheme kanagawa')
