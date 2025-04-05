@@ -29,10 +29,10 @@ keymap("n", "<A-Up>",    "<C-w>k", { desc = "Move to above split" })
 keymap("n", "<A-Right>", "<C-w>l", { desc = "Move to right split" })
 
 -- Resize splits
-keymap("n", "<C-Up>",    ":resize -20<CR>", { desc = "Resize split up" })
-keymap("n", "<C-Down>",  ":resize +20<CR>", { desc = "Resize split down" })
-keymap("n", "<C-Left>",  ":vertical resize -40<CR>", { desc = "Resize split left" })
-keymap("n", "<C-Right>", ":vertical resize +40<CR>", { desc = "Resize split right" })
+keymap("n", "<S-Up>",    ":resize -20<CR>", { desc = "Resize split up" })
+keymap("n", "<S-Down>",  ":resize +20<CR>", { desc = "Resize split down" })
+keymap("n", "<S-Left>",  ":vertical resize -40<CR>", { desc = "Resize split left" })
+keymap("n", "<S-Right>", ":vertical resize +40<CR>", { desc = "Resize split right" })
 
 -- Close buffer
 keymap("n", "<leader>q", ":bd<CR>", { desc = "Close buffer" })
@@ -41,3 +41,14 @@ keymap("n", "<Tab>", "<C-w>w>", { desc = "Next window" })
 
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = "Toggle NvimTree" })
 keymap("n", "<leader>db", ":DBUIToggle<CR>", { desc = "Toggle DB UI" })
+keymap("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlight" })
+
+-- Smooth scrolling
+keymap("n", "n", "nzzzv")         -- next search result
+keymap("n", "N", "Nzzzv")         -- prev search result
+keymap("n", "*", "*zzzv")         -- search word
+keymap("n", "#", "#zzzv")
+keymap("n", "G", "Gzz")           -- end of file
+keymap("n", "gg", "ggzz")         -- start of file
+keymap("n", "<C-d>", "<C-d>zz")   -- half page down
+keymap("n", "<C-u>", "<C-u>zz")   -- half page up

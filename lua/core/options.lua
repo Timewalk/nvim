@@ -13,5 +13,14 @@ opt.scrolloff = 8              -- keep 8 lines above/below cursor
 opt.signcolumn = "yes"         -- always show sign column
 opt.clipboard = "unnamedplus" -- use system clipboard
 opt.mouse = "a"                -- enable mouse support
+opt.updatetime = 250               -- faster CursorHold
+opt.timeoutlen = 300              -- faster keybinding sequences
+opt.splitbelow = true             -- open splits below
+opt.splitright = true             -- open vertical splits to the right
+opt.completeopt = { "menu", "menuone", "noselect" } -- better completion
+opt.ignorecase = true             -- case-insensitive search...
+opt.smartcase = true              -- ...unless capital letter is used
+opt.incsearch = true              -- show matches while typing
+opt.backspace = { "indent", "eol", "start" } -- more forgiving backspace
 
 vim.cmd('colorscheme kanagawa')
