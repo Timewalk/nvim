@@ -23,4 +23,10 @@ opt.smartcase = true              -- ...unless capital letter is used
 opt.incsearch = true              -- show matches while typing
 opt.backspace = { "indent", "eol", "start" } -- more forgiving backspace
 
+-- Folding (indent-based - reliable for Python)
+opt.foldmethod = "indent"
+opt.foldlevel = 99                -- start with all folds open
+opt.foldlevelstart = 99           -- start with all folds open
+opt.foldenable = true             -- enable folding
+
 vim.cmd('colorscheme kanagawa')

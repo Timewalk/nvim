@@ -19,7 +19,17 @@ keymap("n", "<leader>sv",       ":source ~/.config/nvim/init.lua<CR>",     { des
 keymap("n", "gd",               builtin.lsp_definitions,    { desc = "LSP Definitions" })
 keymap("n", "gr",               builtin.lsp_references,     { desc = "LSP References" })
 keymap("n", "gi",               builtin.lsp_implementations,{ desc = "LSP Implementations" })
-keymap("n", "<leader>ds",       builtin.lsp_document_symbols, { desc = "LSP Document Symbols" })
+keymap("n", "gs",               builtin.lsp_document_symbols, { desc = "LSP Document Symbols" })
+
+-- LSP Actions
+keymap("n", "K",           vim.lsp.buf.hover,          { desc = "Hover Documentation" })
+keymap("n", "<leader>rn",  vim.lsp.buf.rename,         { desc = "Rename Symbol" })
+keymap("n", "<leader>ca",  vim.lsp.buf.code_action,    { desc = "Code Action" })
+
+-- Diagnostics
+keymap("n", "[d",          vim.diagnostic.goto_prev,   { desc = "Previous Diagnostic" })
+keymap("n", "]d",          vim.diagnostic.goto_next,   { desc = "Next Diagnostic" })
+keymap("n", "<leader>d",   vim.diagnostic.open_float,  { desc = "Show Diagnostic" })
 
 
 -- Windows
@@ -37,10 +47,7 @@ keymap("n", "<S-Right>", ":vertical resize +40<CR>", { desc = "Resize split righ
 -- Close buffer
 keymap("n", "<leader>q", ":bd<CR>", { desc = "Close buffer" })
 
-keymap("n", "<Tab>", "<C-w>w>", { desc = "Next window" })
-
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = "Toggle NvimTree" })
-keymap("n", "<leader>db", ":DBUIToggle<CR>", { desc = "Toggle DB UI" })
 keymap("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlight" })
 
 -- Smooth scrolling

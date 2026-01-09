@@ -1,18 +1,20 @@
-vim.lsp.set_log_level("debug")
-
 local lspconfig = require("lspconfig")
 local util = require("lspconfig.util")
 
--- Jedi (Python)
-lspconfig.jedi_language_server.setup({
-  cmd = { vim.fn.stdpath("config") .. "/.venv/bin/jedi-language-server" },
+-- Add cmp capabilities for better completions
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+-- Pyright (Python) - installed via Mason
+lspconfig.pyright.setup({
   root_dir = util.find_git_ancestor,
+  capabilities = capabilities,
 })
 
 -- Lua LS
 lspconfig.lua_ls.setup({
   cmd = { "/opt/homebrew/bin/lua-language-server" },
   root_dir = util.find_git_ancestor,
+  capabilities = capabilities,
   settings = {
     Lua = {
       diagnostics = {
@@ -20,13 +22,4 @@ lspconfig.lua_ls.setup({
       },
     },
   },
-})
-
--- SQLS (Go-based server, installed via Mason)
-lspconfig.sqls.setup({
-  -- No custom cmd: uses Mason’s installed "sqls"
-  root_dir = function(fname)
-    return util.find_git_ancestor(fname) or vim.loop.cwd()
-  end,
-  filetypes = { "sql" },
 })

@@ -21,15 +21,6 @@ require("lazy").setup({
     },
 
     {
-        "zbirenbaum/copilot.lua",
-        cmd = "Copilot",
-        event = "InsertEnter",
-        config = function()
-            require("plugins.copilot")
-        end,
-    },
-
-    {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
         config = function()
@@ -86,34 +77,50 @@ require("lazy").setup({
     },
 
     {
-        "tpope/vim-dadbod",
+        "hrsh7th/nvim-cmp",
+        event = "InsertEnter",
         dependencies = {
-            { "kristijanhusak/vim-dadbod-ui" },
-            { "kristijanhusak/vim-dadbod-completion" },
+            "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/cmp-buffer",
+            "hrsh7th/cmp-path",
+            "L3MON4D3/LuaSnip",
+            "saadparwaiz1/cmp_luasnip",
         },
-        cmd = { "DBUI", "DBUIToggle", "DBUIFindBuffer" },
         config = function()
-            vim.g.db_ui_use_nerd_fonts = 1
+            require("plugins.cmp")
         end,
     },
 
     {
-        'kristijanhusak/vim-dadbod-ui',
-        dependencies = {
-            { 'tpope/vim-dadbod', lazy = true },
-            { 'kristijanhusak/vim-dadbod-completion', ft = { 'sql', 'mysql', 'plsql' }, lazy = true }, -- Optional
-        },
-        cmd = {
-            'DBUI',
-            'DBUIToggle',
-            'DBUIAddConnection',
-            'DBUIFindBuffer',
-        },
-        init = function()
-            -- Your DBUI configuration
-            vim.g.db_ui_use_nerd_fonts = 1
+        "folke/which-key.nvim",
+        event = "VeryLazy",
+        config = function()
+            require("plugins.which-key")
         end,
     },
 
+    {
+        "numToStr/Comment.nvim",
+        event = { "BufReadPre", "BufNewFile" },
+        config = function()
+            require("Comment").setup()
+        end,
+    },
+
+    {
+        "lewis6991/gitsigns.nvim",
+        event = { "BufReadPre", "BufNewFile" },
+        config = function()
+            require("plugins.gitsigns")
+        end,
+    },
+
+    {
+        "windwp/nvim-autopairs",
+        event = "InsertEnter",
+        config = function()
+            require("nvim-autopairs").setup()
+        end,
+    },
 
 })
